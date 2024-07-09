@@ -16,7 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Route
-app.use("/api", require("./routes/apiRoutes"));
+// http://ems.vmotosoco-service.com/api/auth/login
+app.use("http://ems.vmotosoco-service.com/api", require("./routes/apiRoutes"));
 
 // Server
 const server = http.createServer(app);
