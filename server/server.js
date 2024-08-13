@@ -17,7 +17,9 @@ app.use(bodyParser.json());
 
 //Route
 // http://ems.vmotosoco-service.com/api/auth/login
-app.use("http://ems.vmotosoco-service.com/api", require("./routes/apiRoutes"));
+// https://ems.vmotosoco-service.com/vmoto-authority-api/auth/account/login
+app.use("/auth", require("./routes/apiRoutes"));
+app.use("/swap", require("./routes/swapRoutes"));
 
 // Server
 const server = http.createServer(app);

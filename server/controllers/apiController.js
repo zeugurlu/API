@@ -1,24 +1,29 @@
 const axios = require("axios");
 
-const useApi = async (req, res) => {
+const useLoginApi = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { userAccount, userPassword, isRememberMe } = req.body;
 
     const response = await axios.post(
-      "http://ems.vmotosoco-service.com/api/auth/login",
+      "https://ems.vmotosoco-service.com/vmoto-authority-api/auth/account/login",
       {
-        username,
-        password,
+        userAccount,
+        userPassword,
+        isRememberMe,
       }
     );
-
-    const { token, refreshToken } = response.data;
-
-    res.json({ token, refreshToken });
+    console.log(response.data);
+    if (response.data.isSuccess) {
+      // const { accessToken, expireDate } = response.data.data;
+      const user = response.data.data;
+      res.json({ user });
+    } else {
+      res.status(400).json({ error: "Error in API response" });
+    }
   } catch (error) {
-    console.error("Error fetching JWT token:", error);
-    res.status(500).send("Error fetching JWT token");
+    console.error("Error fetching access token:", error);
+    res.status(500).send("Error fetching access token");
   }
 };
 
-module.exports = { useApi };
+module.exports = { useLoginApi };
