@@ -2,6 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { getCabinetList } = require("../controllers/swapController");
 
-router.post("/list", getCabinetList);
+router.post("/lists", getCabinetList);
 
 module.exports = router;

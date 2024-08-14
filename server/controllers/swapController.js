@@ -25,4 +25,75 @@ const getCabinetList = async (req, res) => {
   }
 };
 
+const setSwapStation = async (req, res) => {
+  try {
+    const { cabinetId, code } = req.body;
+    const response = await axios.post(
+      "https://ems.vmotosoco-service.com/vmoto-admin-api/iot/cabinetControl",
+      {
+        cabinetId,
+        code,
+      }
+    );
+    console.log("Response data:", response.data);
+
+    if (response.data.isSuccess) {
+      return response.data;
+    } else {
+      res.status(501).json({ error: "Error in API response" });
+    }
+  } catch (error) {
+    console.error("Error fetching cabinet list:", error.message);
+    throw error;
+  }
+};
+
+const setSwapSlot = async (req, res) => {
+  try {
+    const { cabinetId, code, doorId } = req.body;
+    const response = await axios.post(
+      "https://ems.vmotosoco-service.com/vmoto-admin-api/iot/cabinetControl",
+      {
+        cabinetId,
+        code,
+        doorId,
+      }
+    );
+    console.log("Response data:", response.data);
+
+    if (response.data.isSuccess) {
+      return response.data;
+    } else {
+      res.status(501).json({ error: "Error in API response" });
+    }
+  } catch (error) {
+    console.error("Error fetching cabinet list:", error.message);
+    throw error;
+  }
+};
+
+const openSwapStationSlot = async (req, res) => {
+  try {
+    const { cabinetId, code, doorId } = req.body;
+    const response = await axios.post(
+      "https://ems.vmotosoco-service.com/vmoto-admin-api/iot/cabinetControl",
+      {
+        cabinetId,
+        code,
+        doorId,
+      }
+    );
+    console.log("Response data:", response.data);
+
+    if (response.data.isSuccess) {
+      return response.data;
+    } else {
+      res.status(501).json({ error: "Error in API response" });
+    }
+  } catch (error) {
+    console.error("Error fetching cabinet list:", error.message);
+    throw error;
+  }
+};
+
 module.exports = { getCabinetList };
