@@ -1,10 +1,10 @@
-const { useLoginApi } = require("./controllers/apiController");
+const { setSwapSlot } = require("../controllers/apiController");
 
 const req = {
   body: {
-    userAccount: "TUR_TRGREEGO",
-    userPassword: "TURTRGREEGO123",
-    isRememberMe: true,
+    cabinetId: 2,
+    code: 2,
+    doorId: 1,
   },
 };
 
@@ -14,6 +14,9 @@ const res = {
   },
   status: (code) => {
     return {
+      json: (data) => {
+        console.log(`Response Status ${code}:`, data);
+      },
       send: (message) => {
         console.log(`Response Status ${code}: ${message}`);
       },
@@ -22,6 +25,6 @@ const res = {
 };
 
 (async () => {
-  console.log("Testing useLoginApi:");
-  await useLoginApi(req, res);
+  console.log("Testing setSwapSlot:");
+  await setSwapSlot(req, res);
 })();

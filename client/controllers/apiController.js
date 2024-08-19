@@ -79,6 +79,7 @@ const getCabinetList = async (req, res) => {
       headers: {
         "Content-Type": "application/json",
         "Content-Length": Buffer.byteLength(postData),
+        Authorization: "4a875fbc-6c7a-4278-be4c-5262288b008f",
       },
     };
 
@@ -111,6 +112,7 @@ const setSwapStation = async (req, res) => {
       headers: {
         "Content-Type": "application/json",
         "Content-Length": Buffer.byteLength(postData),
+        Authorization: "4a875fbc-6c7a-4278-be4c-5262288b008f",
       },
     };
 
@@ -143,6 +145,7 @@ const setSwapSlot = async (req, res) => {
       headers: {
         "Content-Type": "application/json",
         "Content-Length": Buffer.byteLength(postData),
+        Authorization: "4a875fbc-6c7a-4278-be4c-5262288b008f",
       },
     };
 
@@ -175,6 +178,7 @@ const openSwapStationSlot = async (req, res) => {
       headers: {
         "Content-Type": "application/json",
         "Content-Length": Buffer.byteLength(postData),
+        Authorization: "4a875fbc-6c7a-4278-be4c-5262288b008f",
       },
     };
 

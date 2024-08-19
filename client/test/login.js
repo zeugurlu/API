@@ -1,9 +1,10 @@
-const { getCabinetList } = require("./controllers/apiController");
+const { useLoginApi } = require("../controllers/apiController");
 
 const req = {
   body: {
-    pageSize: 10,
-    currentPage: 1,
+    userAccount: "TUR_TRGREEGO",
+    userPassword: "TURTRGREEGO123",
+    isRememberMe: true,
   },
 };
 
@@ -13,9 +14,6 @@ const res = {
   },
   status: (code) => {
     return {
-      json: (data) => {
-        console.log(`Response Status ${code}:`, data);
-      },
       send: (message) => {
         console.log(`Response Status ${code}: ${message}`);
       },
@@ -25,5 +23,5 @@ const res = {
 
 (async () => {
   console.log("Testing useLoginApi:");
-  await getCabinetList(req, res);
+  await useLoginApi(req, res);
 })();
